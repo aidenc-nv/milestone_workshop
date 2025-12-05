@@ -159,9 +159,10 @@ def index_videos_to_csv(
 
 
 if __name__ == "__main__":
-    filename = "omniverse_generations_av_fog_3_0_0_f_0_10"
+    filename = "av_realistic_wooden_road_7_6_4_f_0_0"
     print(parse_config_from_filename(filename))
 
+    # configuration_utils()
     configuration_utils()
 
     # After you’ve generated videos with the naming convention:

@@ -94,17 +94,28 @@ def generate_omniverse_configurations(
 
 
     weather = ["fog", "morning_sun", "night", "rain", "snow", "wooden_road"]
-    weather = ["fog", "morning_sun"]
-    guidance = [3]
+    # weather = ["fog", "morning_sun"]
+    guidance = [3, 7]
     configurations = [
-        {"edge": 1},
-        {"vis": 1},
-        {"depth": 1, "depth_path": True},
-        # {"edge": 1, "edge_path": True},
-        {"edge": 1, "seg": 0.6},
-        {"edge": 1, "seg": 0.9, "depth": 0.9, "depth_path": True},
-        {"edge": 1, "depth": 0.9, "depth_path": True},
+        {"vis": 1.0},
+        {"depth": 1.0, "depth_path":True},
+        {"edge": 1.0, "edge_path": True},
+        {"edge": 1.0,"edge_path":True, "seg": 0.6},
+        {"edge": 1.0,"edge_path":True, "seg": 0.9, "depth": 0.9, "depth_path": True},
+        {"edge": 1.0,"edge_path":True, "depth": 0.9, "depth_path": True},
+
+        {"edge": 1.0,"edge_path":True, "depth": 0.9, "seg": 1},
+        {"edge": 1.0,"edge_path":True, "depth": 0.9, "seg": 0.5},
+        {"edge": 0.9,"edge_path":True, "depth": 1.0, "depth_path":True},
+        {"edge": 0.5,"edge_path":True, "depth": 1.0, "depth_path":True},
+        {"edge": 0.5,"edge_path":True, "depth": 1.0, "depth_path":True, "seg": 0.4},
+        {"edge": 0.4,"edge_path":True, "depth": 1.0, "depth_path":True},
+        {"edge": 1.0,"edge_path":True, "depth": 0.5, "depth_path":True},
+        {"edge": 1.0,"edge_path":True, "vis": 0.2},
+        {"edge": 1.0,"edge_path":True, "vis": 0.5},
+        {"edge": 0.6,"edge_path":True, "seg": 0.4},
     ]
+
 
     full_configs = []
     name_overlap = []
@@ -161,14 +172,19 @@ def av_generate_realistic_configurations(
         {"depth": 1},
         {"edge": 1},
         {"vis": 1},
+        {"seg": 1},
         {"edge": 1, "depth": 0.9},
+        {"edge": 1, "depth": 0.9, "seg": 1},
+        {"edge": 1, "depth": 0.9, "seg": 0.5},
         {"edge": 0.9, "depth": 1.0},
         {"edge": 0.5, "depth": 1.0},
+        {"edge": 0.5, "depth": 1.0, "seg": 0.4},
+        {"edge": 0.4, "depth": 1.0},
         {"edge": 1.0, "depth": 0.5},
         {"edge": 1.0, "depth": 0.9, "vis": 0.2},
         {"edge": 1.0, "vis": 0.2},
         {"edge": 1.0, "vis": 0.5},
-        {"edge": 1.0, "vis": 0.8},
+        {"edge": 0.6, "seg": 0.4},
     ]
 
     full_configs = []
@@ -203,8 +219,8 @@ def av_generate_realistic_configurations(
 
 
 if __name__ == "__main__":
-    # generate_omniverse_configurations()
-    av_generate_realistic_configurations()
+    generate_omniverse_configurations()
+    # av_generate_realistic_configurations()
 
 
     ## python -m src.scene_generation
